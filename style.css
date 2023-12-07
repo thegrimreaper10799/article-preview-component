@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+
+
+*,
+*::before,
+*::after {
+      box-sizing: border-box;
+}
+
+* {
+      margin: 0;
+      font: inherit;
+      text-decoration: none;
+}
+
+html,
+body {
+      height: 100%;
+}
+
+img,
+svg {
+      display: block;
+      max-width: 100%;
+}
+
+:root {
+      --clr-title-tooltip-active: hsl(217, 19%, 35%);
+      --clr-unknown:hsl(212, 23%, 69%);
+      --clr-main-bg-tooltip: hsl(210, 46%, 95%);
+      --clr-text: hsl(214, 17%, 51%);
+
+      --fs-400: .80125rem;
+      --fs-800: 1rem;
+      --fs-900: 1.25rem;
+
+      --fw-regular: 400;
+      --fw-semi-bold: 500;
+      --fw-bold: 700;
+}
+
+body {
+      display: grid;
+      font-family: 'Manrope', sans-serif;
+      font-size: var(--fs-400);
+      color: var(--clr-text);
+      background-color: var(--clr-main-bg-tooltip);
+}
+
+.article-preview {
+      display: grid;  
+      border-radius: 9px;
+      background-color: white;
+}
+
+article {
+      position: relative;
+      display: grid;
+}
+
+.content {
+      display: grid;
+}
+
+.title, .name {
+      font-weight: var(--fw-bold);
+      color: var(--clr-title-tooltip-active);
+}
+
+.text {
+      line-height: 1.6;
+}
+
+.writer-info {
+      position: relative;
+}
+
+.writer {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+}
+
+.writer img {
+      width: 40px;
+      border-radius: 50%;
+}
+
+.info {
+      display: grid;
+      gap: .1rem;
+}
+
+.share-btn, .share-via {
+      position: absolute;
+}
+
+.share-btn {
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 36px;
+      width: 36px;
+      border-radius: 50%;
+      border: none;
+      background-color: var(--clr-main-bg-tooltip);
+      z-index: 3;
+}
+
+.share-btn img {
+      margin: auto;
+}
+
+.share-via {
+      display: flex;
+      gap: 1.125rem;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      background-color: var(--clr-title-tooltip-active);
+      transition: all 500ms ease;
+}
+
+.share-via p {
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--clr-unknown);
+}
+
+.share-via img {
+      height: 20px;
+      width: 20px;
+
+}
+
+.name:hover, .share-via a:hover {
+      cursor: pointer;
+}
+
+@media (width <= 660px) {
+      .article-preview {
+            gap: 2.25rem;   
+            width: 20.5rem;
+            margin: auto;
+            overflow: hidden;
+      }
+      
+      article {
+            padding: 0 2rem;
+            gap: 2.25rem;
+            padding-bottom: 1.25rem;
+      }
+
+      .drawer-icon {
+            height: 13.75rem;
+            overflow: hidden;
+      }
+
+      .title {
+            font-size: var(--fs-800);
+      }
+
+      .share-via {
+            padding-left: 2rem;
+            height: 5.125rem;
+            width: 100%;
+
+            left: 50%;
+            bottom: -90px;
+            transform: translateX(-50%);
+      }
+
+      .content {
+            gap: .85rem;
+      }
+      
+      .styled-tooltip {
+            opacity: 1;
+            bottom: 0;
+            visibility: visible;
+      }
+}
+
+
+@media (width >= 661px) {
+      body {
+            place-content: center;
+      }
+      
+      .article-preview {
+            grid-template-columns: 40% 60%;
+            max-width: 50rem;
+      }
+
+      .drawer-icon img {
+            object-fit: cover;
+            height: 100%;
+      }
+
+      article {
+            gap: 1.125rem;
+            padding: 2.4rem;
+      }
+
+      .content {
+            gap: .775rem;
+      }
+
+      .title {
+            font-size: var(--fs-900);
+      }
+
+      .share-via {
+            padding: 1.125rem 2.25rem;
+            border-radius: 10px;
+            right: -13%;
+            bottom: 120px;
+            z-index: 1;
+      }
+
+      .share-via::before {
+            content: '';
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            background-color: var(--clr-title-tooltip-active);
+            bottom: -5px;
+            left: 112.4px;
+            transform: rotate(45deg);
+            z-index: -1;
+      }
+
+      .styled-tooltip {
+            bottom: 100px;
+            opacity: 1;
+            visibility: visible;
+      }
+
+}
